@@ -21,17 +21,19 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
-      <hr/>
-      {auth && <Redirect exact from = "/" to ="/contacts" />}
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <Switch>
-          <Route path="/" exact component = {Home}/>
-          <Route path="/contacts" component={ContactMain}/>
-          <Route path = "/login" component = {AuthComponent}/>
-        </Switch>
-        </BrowserRouter>  
-      {loading && <Loader/>}
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Header/>
+        <hr/>
+        {auth && <Redirect exact from = "/" to ="/contacts" />}
+
+          <Switch>
+            <Route path="/" exact component = {Home}/>
+            <Route path="/contacts" component={ContactMain}/>
+            <Route path = "/login" component = {AuthComponent}/>
+          </Switch>
+
+        {loading && <Loader/>}
+       </BrowserRouter>
     </div>
   );
 }
